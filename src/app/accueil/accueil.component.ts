@@ -1,10 +1,25 @@
-import { Component } from '@angular/core';
-
+import { Component, Injectable, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AnnonceService } from '../services/annonce.service';
+import { Annonce } from '../model/annonce';
 @Component({
   selector: 'app-accueil',
   templateUrl: './accueil.component.html',
   styleUrls: ['./accueil.component.css']
 })
-export class AccueilComponent {
+export class AccueilComponent implements OnInit {
+  annonces:Annonce[]=[];
+  constructor(private router: Router,private annonceservice:AnnonceService)
+  {
+
+  }
+  ngOnInit(): void 
+  {
+    this.annonceservice.getlisteannonce().subscribe(data=> {this.annonces=data;});
+  }
+
+  redirectToDetails(id: number) {
+    this.router.navigate(['annonce_details', id]);
+  }
 
 }

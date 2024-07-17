@@ -10,22 +10,23 @@
     <div class="container">
         <h2>Ajouter une annonce</h2>
         <!--<form action="submit_annonce.php" method="post" enctype="multipart/form-data">-->
-        <form>
+        <form (ngSubmit)="ajouterAnnonce()"> 
+            
             <div class="form-group">
                 <label for="model">Modèle :</label>
-                <input type="text" id="model" name="model" required>
+                <input type="text" id="model" [(ngModel)]="nouvelleAnnonce.model" name="model" required>
             </div>
             <div class="form-group">
                 <label for="matricule">Matricule :</label>
-                <input type="text" id="matricule" name="matricule" required>
+                <input type="text" id="matricule" [(ngModel)]="nouvelleAnnonce.matricule"name="matricule" required>
             </div>
             <div class="form-group">
                 <label for="kilometrage">Kilométrage :</label>
-                <input type="number" id="kilometrage" name="kilometrage" required>
+                <input type="number" id="kilometrage" [(ngModel)]="nouvelleAnnonce.kilometrage" name="kilometrage" required>
             </div>
             <div class="form-group">
                 <label for="carburant">Carburant :</label>
-                <select id="carburant" name="carburant" required>
+                <select id="carburant" [(ngModel)]="nouvelleAnnonce.carburant" name="carburant" required>
                     <option value="essence">Essence</option>
                     <option value="gaz">Gaz</option>
                     <option value="gazoil">Gazoil</option>
@@ -34,7 +35,9 @@
             </div>
             <div class="form-group">
                 <label for="photo">Photo :</label>
-                <input type="file" id="photo" name="photo" accept="image/*" required>
+                <input type="file" (change)="onFileSelected($event)" accept="image/*">
+
+                <!--!<input type="file" (change)="filechange($event)" id="photo" name="photo" accept="image/*" required>-->
             </div>
             <button type="submit">Ajouter</button>
         </form>

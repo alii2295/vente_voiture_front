@@ -1,0 +1,138 @@
+/* Reset CSS de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px auto;
+    max-width: 1200px;
+
+
+}
+
+.mes-annonces {
+
+
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   
+}
+.mes-annonces img
+{
+    width: 100px;
+    height: 50px;
+}
+
+.mes-annonces h2 {
+    font-size: 2.5rem; /* Taille de la police en rem */
+    color: #333; /* Couleur du texte */
+    font-weight: bold; /* Gras */
+    font-family: Arial, sans-serif; /* Police de caractères */
+    margin-bottom: 10px; /* Marge en bas pour l'espace */
+
+}
+
+.annonce h2{
+    font-size: 1.8rem; /* Taille de la police en rem */
+    color: #666; /* Couleur du texte */
+    font-weight: normal; /* Normal (non gras) */
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Police de caractères */
+    margin-bottom: 20px; /* Marge en bas pour l'espace */
+    cursor: pointer;
+}
+.annonce:hover {
+    background-color: #f0f0f0; /* Style de survol pour la section */
+}
+
+.connexion {
+    flex: 0 0 300px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.user-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-profile span {
+    font-weight: bold;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form label {
+    margin-bottom: 5px;
+}
+
+.login-form input, .login-form button {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-form button {
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: #555;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

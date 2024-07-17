@@ -9,6 +9,9 @@ import { GestionannonceComponent } from './annonce/gestionannonce/gestionannonce
 import { AjouterannonceComponent } from './annonce/ajouterannonce/ajouterannonce.component';
 import { SupprimerannonceComponent } from './annonce/supprimerannonce/supprimerannonce.component';
 import { ModifierannonceComponent } from './annonce/modifierannonce/modifierannonce.component';
+import {HttpClientModule} from '@angular/common/http';
+import { formatCurrency } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { ModifierannonceComponent } from './annonce/modifierannonce/modifieranno
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
