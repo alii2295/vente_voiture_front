@@ -1,41 +1,24 @@
-<!-- annonces.component.html -->
-
 <header>
     <div class="logo">
-        <img src="assets/voiture.png" alt="Logo">
-        <h1>Mon Site d'Annonces</h1>
+      <img src="assets/voiture.png" alt="Logo">
+      <h1>Mon Site d'Annonces</h1>
     </div>
-</header>
-
-<main class="container">
-
+  </header>
+  
+  <main class="container">
     <section class="mes-annonces" *ngFor="let annonce of annonces">
-        <section class="annonce" >
-            <h2>{{annonce.model}}</h2>
-            <p>{{annonce.matricule}}</p>
-            <!-- Affichage de l'image de l'annonce -->
-            <img *ngIf="annonce.photo" [src]="annonce.photo" alt="Image de l'annonce">
-            <img [src]="annonce.photo" alt="Photo Annonce 1">
-            <p>{{annonce.kilometrage}}</p>
-            <p>{{annonce.carburant}}</p>
-         </section>
+      <div class="annonce">
+        <h2>{{ annonce.model }}</h2>
+        <p>{{ annonce.matricule }}</p>
+       
+        <img [src]="'assets/' + annonce.photo" alt="Image de l'annonce">
+        <p>{{ annonce.kilometrage }}</p>
+        <p>{{ annonce.carburant }}</p>
+      </div>
     </section>
-
-    <section class="connexion">
-        <div class="user-profile">
-            <img src="assets/user.png" alt="Utilisateur">
-            <span>Bienvenue, Utilisateur</span>
-        </div>
-        <form action="traitement_connexion.php" method="post" class="login-form">
-            <label for="email">Mail :</label>
-            <input type="email" id="email" name="email" placeholder="Votre e-mail" required>
-            <label for="password">Password :</label>
-            <input type="password" id="password" name="password" placeholder="Votre mot de passe" required>
-            <button type="submit">Connexion</button>
-        </form>
-    </section>
-</main>
-
-<footer>
+  </main>
+  
+  <footer>
     <p>&copy; 2024 Mon Site d'Annonces. Tous droits réservés.</p>
-</footer>
+  </footer>
+  
