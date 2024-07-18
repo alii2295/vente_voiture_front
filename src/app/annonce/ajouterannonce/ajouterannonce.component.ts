@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Annonce } from 'src/app/model/annonce';
 import { AnnonceService } from 'src/app/services/annonce.service';
+
 @Component({
   selector: 'app-ajouterannonce',
   templateUrl: './ajouterannonce.component.html',
@@ -14,7 +16,7 @@ export class AjouterannonceComponent {
    
   }
 
-  
+  annonce:Annonce={}as Annonce
   nouvelleAnnonce = {
     id:0,
     model:'',
@@ -23,7 +25,13 @@ export class AjouterannonceComponent {
     carburant:'',
     photo:'',
 }
-selectedFile: File | null = null;
+createannonce():void
+{
+  this.annonceservice.createannonce(this.annonce).subscribe
+  this.annonce={} as Annonce;
+
+}
+/*selectedFile: File | null = null;
 
  
 
@@ -44,7 +52,7 @@ selectedFile: File | null = null;
     this.annonceservice.createannonce(formData).subscribe(() => {
       this.router.navigate(['/accueil']);
     });
-  }
+  }*/
  
 
 }
