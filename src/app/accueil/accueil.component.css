@@ -53,6 +53,9 @@ header {
     width: 100px;
     height: 50px;
 }
+.annonce {
+    cursor: pointer;
+  }
 
 .mes-annonces h2 {
     font-size: 2.5rem; /* Taille de la police en rem */

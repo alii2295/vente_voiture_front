@@ -19,7 +19,7 @@ export class AccueilComponent implements OnInit {
     });
   }
 
-  redirectToDetails(id: number) {
-    this.router.navigate(['annonce_details', id]);
+  redirectToDetails(matricule: string) {
+    this.router.navigate(['/detailleannonce', matricule]);
   }
 }

@@ -5,30 +5,33 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { InscriptionComponent } from './inscription/inscription.component';
-import { GestionannonceComponent } from './annonce/gestionannonce/gestionannonce.component';
+import { DetailleannonceComponent } from './annonce/detailleannonce/detailleannonce.component';
 import { AjouterannonceComponent } from './annonce/ajouterannonce/ajouterannonce.component';
 import { SupprimerannonceComponent } from './annonce/supprimerannonce/supprimerannonce.component';
 import { ModifierannonceComponent } from './annonce/modifierannonce/modifierannonce.component';
 import {HttpClientModule} from '@angular/common/http';
 import { formatCurrency } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+//decorateur (annotation en spring boot)
 @NgModule({
+  // commpont declaration
   declarations: [
     AppComponent,
     AccueilComponent,
     InscriptionComponent,
-    GestionannonceComponent,
+    DetailleannonceComponent,
     AjouterannonceComponent,
     SupprimerannonceComponent,
     ModifierannonceComponent
   ],
+  //model(bibliotheque)
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule
   ],
+  //declartion des service
   providers: [],
   bootstrap: [AppComponent]
 })

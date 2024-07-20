@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GestionannonceComponent } from './gestionannonce.component';
+import { DetailleannonceComponent } from './detailleannonce.component';
 
 describe('GestionannonceComponent', () => {
-  let component: GestionannonceComponent;
-  let fixture: ComponentFixture<GestionannonceComponent>;
+  let component: DetailleannonceComponent;
+  let fixture: ComponentFixture<DetailleannonceComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [GestionannonceComponent]
+      declarations: [DetailleannonceComponent]
     });
-    fixture = TestBed.createComponent(GestionannonceComponent);
+    fixture = TestBed.createComponent(DetailleannonceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

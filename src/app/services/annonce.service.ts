@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Annonce } from '../model/annonce';
 import { Observable } from 'rxjs';
-
+//decorateur 
 @Injectable({
   providedIn: 'root'
 })
 export class AnnonceService {
-  private baseurl = 'http://localhost:3000/annonces';
+  private baseurl = 'http://localhost:3000/annonces';//API 192;66;90;1
 
   constructor(private http: HttpClient) { }
 
@@ -21,6 +21,10 @@ export class AnnonceService {
 
   getAnnonce(id: number): Observable<Annonce> {
     return this.http.get<Annonce>(`${this.baseurl}/${id}`);
+  }
+
+  getAnnonceByMatricule(matricule: string): Observable<Annonce[]> {
+    return this.http.get<Annonce[]>(`${this.baseurl}?matricule=${matricule}`);
   }
 
   updateAnnonce(annonce: Annonce, id: number): Observable<Annonce> {

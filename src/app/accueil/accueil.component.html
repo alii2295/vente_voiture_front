@@ -7,16 +7,26 @@
   
   <main class="container">
     <section class="mes-annonces" *ngFor="let annonce of annonces">
-      <div class="annonce">
-        <h2>{{ annonce.model }}</h2>
+      <div  class="annonce">
+        <div (click)="redirectToDetails(annonce.matricule)"> <!-- pourkoiii annonce.model ???-->
+        <!-- <h2> <a [routerLink]="['/annonces',annonce.model]">{{ annonce.model }} </a></h2> -->
+        <p>{{annonce.model}}</p>
         <p>{{ annonce.matricule }}</p>
        
         <img [src]="'assets/' + annonce.photo" alt="Image de l'annonce">
         <p>{{ annonce.kilometrage }}</p>
         <p>{{ annonce.carburant }}</p>
       </div>
+      </div>
+      <!--<div (click)="redirectToDetails(annonce.model)">
+        <a>{{ annonce.model }}</a>
+      </div>-->
     </section>
   </main>
+  <!-- annonces.component.html -->
+<!-- <div *ngFor="let annonce of annonces">
+  <a [routerLink]="['/annonces', annonce.id]">{{ annonce.model }}</a>
+</div> -->
   
   <footer>
     <p>&copy; 2024 Mon Site d'Annonces. Tous droits réservés.</p>

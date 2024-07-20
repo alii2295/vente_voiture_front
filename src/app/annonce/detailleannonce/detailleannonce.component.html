@@ -1,0 +1,14 @@
+<div *ngIf="annonce">
+  <h2>{{ annonce.model }}</h2>
+  <p>Matricule: {{ annonce.matricule }}</p>
+  <img [src]="'assets/' + annonce.photo" alt="Image de l'annonce">
+  <p>Kilométrage: {{ annonce.kilometrage }}</p>
+  <p>Carburant: {{ annonce.carburant }}</p>
+  <!-- Ajoutez d'autres détails d'annonce à afficher ici -->
+</div>
+
+<div *ngIf="!annonce">
+  <p>Chargement des détails de l'annonce...</p>
+</div>
+
+

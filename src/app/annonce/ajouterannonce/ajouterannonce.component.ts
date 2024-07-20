@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AnnonceService } from 'src/app/services/annonce.service';
-
+//decotrateur
 @Component({
   selector: 'app-ajouterannonce',
   templateUrl: './ajouterannonce.component.html',
