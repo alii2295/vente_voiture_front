@@ -22,4 +22,21 @@ export class AccueilComponent implements OnInit {
   redirectToDetails(matricule: string) {
     this.router.navigate(['/detailleannonce', matricule]);
   }
-}
+
+  supprimer(id: number):void 
+  {
+    this.annonceService.deleteAnnonce(id).subscribe(()=>[this.annonces=this.annonces.filter(Annonce=>Annonce.id!==id)]);
+    this.router.navigate(['/accueil']);
+  }
+  edit(matricule:string):void
+  {
+    this.router.navigate(['/modifierannonce', matricule]);
+  }
+
+  
+    
+  }
+  
+  
+  
+

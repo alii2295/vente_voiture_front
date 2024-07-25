@@ -12,6 +12,7 @@ import { ModifierannonceComponent } from './annonce/modifierannonce/modifieranno
 import {HttpClientModule} from '@angular/common/http';
 import { formatCurrency } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //decorateur (annotation en spring boot)
 @NgModule({
   // commpont declaration
@@ -29,7 +30,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   //declartion des service
   providers: [],

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Route } from '@angular/router';
 import { Annonce } from 'src/app/model/annonce';
 import { AnnonceService } from 'src/app/services/annonce.service';
 import { ActivatedRoute } from '@angular/router';
+//import { Router } from 'express';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -31,8 +32,9 @@ import { ActivatedRoute } from '@angular/router';
 export class DetailleannonceComponent implements OnInit {
 
   annonce: Annonce | undefined; // Assurez-vous que le type correspond à votre modèle d'annonce
-
+  annonces:Annonce[]=[];
   constructor(
+    private router:Router,
     private route: ActivatedRoute,
     private annoncesService: AnnonceService
   ) { }
@@ -71,6 +73,13 @@ export class DetailleannonceComponent implements OnInit {
         );
       }
     }
-  
+    supprimer(id: number):void 
+      {
+        this.annoncesService.deleteAnnonce(id).subscribe(()=>[this.annonces=this.annonces.filter(Annonce=>Annonce.id!==id)]);
+        this.router.navigate(['/accueil']);
+      }
+   
+    }
 
-}
+
+

@@ -27,8 +27,8 @@ export class AnnonceService {
     return this.http.get<Annonce[]>(`${this.baseurl}?matricule=${matricule}`);
   }
 
-  updateAnnonce(annonce: Annonce, id: number): Observable<Annonce> {
-    return this.http.put<Annonce>(`${this.baseurl}/${id}`, annonce);
+  updateAnnonce(annonce: Annonce): Observable<Annonce> {
+    return this.http.put<Annonce>(`${this.baseurl}/${annonce.matricule}`, annonce);
   }
 
   deleteAnnonce(id: number): Observable<void> {

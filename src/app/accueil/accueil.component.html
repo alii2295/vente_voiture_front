@@ -1,3 +1,6 @@
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 <header>
     <div class="logo">
       <img src="assets/voiture.png" alt="Logo">
@@ -16,8 +19,17 @@
         <img [src]="'assets/' + annonce.photo" alt="Image de l'annonce">
         <p>{{ annonce.kilometrage }}</p>
         <p>{{ annonce.carburant }}</p>
+        
+
       </div>
       </div>
+            <button type="submit"(click)="supprimer(annonce.id)"><i class="fa fa-trash" aria-hidden="true"></i></button> 
+            
+            <button type="submit"(click)="edit(annonce.matricule)"><i class="fa fa-trash" aria-hidden="true"></i></button> 
+
+            <!-- <mat-icon (click)="supprimer(annonce.id)">supprimer annonce</mat-icon> -->
+
+
       <!--<div (click)="redirectToDetails(annonce.model)">
         <a>{{ annonce.model }}</a>
       </div>-->

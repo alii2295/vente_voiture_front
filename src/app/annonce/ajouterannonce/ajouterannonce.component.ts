@@ -15,7 +15,7 @@ export class AjouterannonceComponent {
     kilometrage: 0,
     carburant: '',
     photo: ''
-  };
+  };//instance de la base de données , initialisation de table ,obligatoire avant d'accèder au table de base de données
   selectedFile: File | null = null;
 
   constructor(private router: Router, private annonceService: AnnonceService) { }
