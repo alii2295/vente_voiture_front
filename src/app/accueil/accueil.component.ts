@@ -19,18 +19,18 @@ export class AccueilComponent implements OnInit {
     });
   }
 
-  redirectToDetails(matricule: string) {
-    this.router.navigate(['/detailleannonce', matricule]);
+  redirectToDetails(id: string) {
+    this.router.navigate(['/detailleannonce', id]);
   }
 
-  supprimer(id: number):void 
+  supprimer(id: string):void 
   {
     this.annonceService.deleteAnnonce(id).subscribe(()=>[this.annonces=this.annonces.filter(Annonce=>Annonce.id!==id)]);
     this.router.navigate(['/accueil']);
   }
-  edit(matricule:string):void
+  edit(id:string):void
   {
-    this.router.navigate(['/modifierannonce', matricule]);
+    this.router.navigate(['/modifierannonce', id]);
   }
 
   

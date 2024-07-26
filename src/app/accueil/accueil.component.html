@@ -11,7 +11,7 @@
   <main class="container">
     <section class="mes-annonces" *ngFor="let annonce of annonces">
       <div  class="annonce">
-        <div (click)="redirectToDetails(annonce.matricule)"> <!-- pourkoiii annonce.model ???-->
+        <div (click)="redirectToDetails(annonce.id)"> <!-- pourkoiii annonce.model ???-->
         <!-- <h2> <a [routerLink]="['/annonces',annonce.model]">{{ annonce.model }} </a></h2> -->
         <p>{{annonce.model}}</p>
         <p>{{ annonce.matricule }}</p>
@@ -25,7 +25,7 @@
       </div>
             <button type="submit"(click)="supprimer(annonce.id)"><i class="fa fa-trash" aria-hidden="true"></i></button> 
             
-            <button type="submit"(click)="edit(annonce.matricule)"><i class="fa fa-trash" aria-hidden="true"></i></button> 
+            <button type="submit"(click)="edit(annonce.id)"><i class="fa fa-trash" aria-hidden="true"></i></button> 
 
             <!-- <mat-icon (click)="supprimer(annonce.id)">supprimer annonce</mat-icon> -->
 

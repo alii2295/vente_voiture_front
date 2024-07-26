@@ -5,13 +5,15 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { DetailleannonceComponent } from './annonce/detailleannonce/detailleannonce.component';
 import { ModifierannonceComponent } from './annonce/modifierannonce/modifierannonce.component';
+import { SupprimerannonceComponent } from './annonce/supprimerannonce/supprimerannonce.component';
 
 const routes: Routes = [
   {path: 'ajouterannonce',component: AjouterannonceComponent},
   {path: 'inscription',component: InscriptionComponent},
   {path: 'accueil',component:AccueilComponent},
-  {path: 'detailleannonce/:matricule',component:DetailleannonceComponent},
-  {path: 'modifierannonce/:matricule',component:ModifierannonceComponent}
+  {path: 'detailleannonce/:id',component:DetailleannonceComponent},
+  {path: 'modifierannonce/:id',component:ModifierannonceComponent},
+  {path: 'supprimerannonce',component:SupprimerannonceComponent}
   
 ];
 //{path: '/rihab',component: AjouterannonceComponent,pathMatch: 'full'}

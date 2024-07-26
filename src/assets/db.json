@@ -2,35 +2,27 @@
   "annonces": [
     {
       "id": "eb36",
-      "model": "kia sportage",
-      "matricule": "200",
-      "kilometrage": 150,
-      "carburant": "essence",
+      "model": "kiaa",
+      "matricule": "2000",
+      "kilometrage": 1500,
+      "carburant": "gaz",
       "photo": "kiasportage.png"
     },
     {
-      "id": "569d",
-      "model": "polo5",
-      "matricule": "150",
-      "kilometrage": 150,
-      "carburant": "essence",
-      "photo": "polo5.jpg"
-    },
-    {
       "id": "9d93",
-      "model": "BMW",
-      "matricule": "250",
-      "kilometrage": 1000,
-      "carburant": "electrique",
+      "model": "BMWxx",
+      "matricule": "25000",
+      "kilometrage": 10000,
+      "carburant": "essence",
       "photo": "bmw.jpg"
     },
     {
-      "id": 0,
-      "model": "",
-      "matricule": "",
-      "kilometrage": 0,
-      "carburant": "",
-      "photo": ""
+      "id": "5217",
+      "model": "polo5",
+      "matricule": "250",
+      "kilometrage": 200,
+      "carburant": "essence",
+      "photo": "polo5.jpg"
     }
   ]
 }

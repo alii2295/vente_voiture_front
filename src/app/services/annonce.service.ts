@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Annonce } from '../model/annonce';
 import { Observable } from 'rxjs';
+import { HttpHeaders } from '@angular/common/http';
 //decorateur 
 @Injectable({
   providedIn: 'root'
@@ -19,19 +20,20 @@ export class AnnonceService {
     return this.http.get<Annonce[]>(this.baseurl);
   }
 
-  getAnnonce(id: number): Observable<Annonce> {
-    return this.http.get<Annonce>(`${this.baseurl}/${id}`);
+  getAnnonce(id: string): Observable<Annonce[]> {
+    return this.http.get<Annonce[]>(`${this.baseurl}?id=${id}`);
   }
 
   getAnnonceByMatricule(matricule: string): Observable<Annonce[]> {
     return this.http.get<Annonce[]>(`${this.baseurl}?matricule=${matricule}`);
   }
 
-  updateAnnonce(annonce: Annonce): Observable<Annonce> {
-    return this.http.put<Annonce>(`${this.baseurl}/${annonce.matricule}`, annonce);
+  updateAnnonce(annonce: Annonce,id:string): Observable<Annonce> {
+    return this.http.put<Annonce>(`${this.baseurl}/${id}`, annonce);
   }
 
-  deleteAnnonce(id: number): Observable<void> {
+  deleteAnnonce(id: string): Observable<void> {
     return this.http.delete<void>(`${this.baseurl}/${id}`);
   }
+
 }

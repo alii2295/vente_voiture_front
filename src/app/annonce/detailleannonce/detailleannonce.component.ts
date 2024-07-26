@@ -56,14 +56,14 @@ export class DetailleannonceComponent implements OnInit {
     );
   }*/
     getAnnonce(): void {
-      const matricule = this.route.snapshot.paramMap.get('matricule');
-      if (matricule) {
-        this.annoncesService.getAnnonceByMatricule(matricule).subscribe(
+      const id = this.route.snapshot.paramMap.get('id');
+      if (id) {
+        this.annoncesService.getAnnonce(id).subscribe(
           (annonces: Annonce[]) => {
             if (annonces.length > 0) {
               this.annonce = annonces[0]; // Supposons que vous récupérez un seul élément par matricule
             } else {
-              console.error(`Aucune annonce trouvée pour le matricule ${matricule}`);
+              console.error(`Aucune annonce trouvée pour le matricule ${id}`);
             }
           },
           error => {
@@ -73,7 +73,7 @@ export class DetailleannonceComponent implements OnInit {
         );
       }
     }
-    supprimer(id: number):void 
+    supprimer(id: string):void 
       {
         this.annoncesService.deleteAnnonce(id).subscribe(()=>[this.annonces=this.annonces.filter(Annonce=>Annonce.id!==id)]);
         this.router.navigate(['/accueil']);

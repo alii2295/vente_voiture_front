@@ -33,11 +33,24 @@
                     <option value="electrique">Électrique</option>
                  </select>
            </div>
-            <img [src]="'assets/' + annonce.photo" alt="Image de l'annonce">
+           <!--  <img [src]="'assets/' + annonce.photo" alt="Image de l'annonce">
            <div class="form-group">
             <label for="photo">Photo :</label>
             <input type="file" (change)="onFileSelected($event)" id="photo" name="photo" accept="image/*"> 
-             </div>
+             </div> -->
+            <!-- Affichage de l'image actuelle -->
+      <div class="form-group">
+        <label for="photo">Photo actuelle :</label>
+        <div *ngIf="annonce.photo">
+          <img [src]="'assets/' + annonce.photo" alt="Image actuelle" style="max-width: 200px; margin-top: 10px;">
+        </div>
+      </div>
+
+      <!-- Sélection d'une nouvelle photo -->
+      <div class="form-group">
+        <label for="photo">Choisir une nouvelle photo :</label>
+        <input type="file" (change)="onFileSelected($event)" id="photo" name="photo" accept="image/*">
+      </div>
             
 
             <!--  <div class="form-group">

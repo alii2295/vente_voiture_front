@@ -1,7 +1,7 @@
 import { Data } from "@angular/router";
 
 export interface Annonce {
-    id:number,
+    id:string,
     model:string,
     matricule:string,
     kilometrage:number, 
