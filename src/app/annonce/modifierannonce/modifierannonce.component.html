@@ -38,25 +38,26 @@
             <label for="photo">Photo :</label>
             <input type="file" (change)="onFileSelected($event)" id="photo" name="photo" accept="image/*"> 
              </div> -->
-            <!-- Affichage de l'image actuelle -->
+             <!-- Affichage de l'image actuelle -->
+              
       <div class="form-group">
         <label for="photo">Photo actuelle :</label>
         <div *ngIf="annonce.photo">
-          <img [src]="'assets/' + annonce.photo" alt="Image actuelle" style="max-width: 200px; margin-top: 10px;">
+          <img [src]="'assets/' + annonce.photo" alt="Image actuelle">
         </div>
-      </div>
+      </div> 
 
-      <!-- Sélection d'une nouvelle photo -->
+       Sélection d'une nouvelle photo 
       <div class="form-group">
-        <label for="photo">Choisir une nouvelle photo :</label>
         <input type="file" (change)="onFileSelected($event)" id="photo" name="photo" accept="image/*">
-      </div>
+      </div> 
             
-
-            <!--  <div class="form-group">
+<!--
+             <div class="form-group">
             <label for="photo">Photo :</label>
             <input type="file" (change)="onFileSelected($event)" id="photo" name="photo" accept="image/*">
-            </div>  -->
+            </div>  
+            -->
            <!-- <div class="form-group">
                 <label for="photo">Photo :</label>
                 <input type="file" (change)="onFileSelected($event)" id="photo" name="photo" accept="image/*">

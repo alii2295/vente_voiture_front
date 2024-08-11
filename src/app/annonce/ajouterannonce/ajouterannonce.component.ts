@@ -41,10 +41,4 @@ export class AjouterannonceComponent {
       console.error('Error creating annonce:', error);
     });
   }
-  
-
-  
-  
-  
-  
 }

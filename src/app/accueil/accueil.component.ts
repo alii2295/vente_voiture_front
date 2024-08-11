@@ -10,6 +10,11 @@ import { Annonce } from '../model/annonce';
 })
 export class AccueilComponent implements OnInit {
   annonces: Annonce[] = [];
+  searchQuery:string='';
+  filteredAnnonces: Annonce[] = [];
+  username:String = '';
+  password:String ='';
+
 
   constructor(private router: Router, private annonceService: AnnonceService) { }
 
@@ -32,6 +37,48 @@ export class AccueilComponent implements OnInit {
   {
     this.router.navigate(['/modifierannonce', id]);
   }
+  /*onSearch():void{
+    if(this.searchQuery.trim())
+    {
+      this.annonceService.searchAnnonces(this.searchQuery).subscribe(
+
+        (results:Annonce[])=>{
+          this.annonces=results;
+        },
+        error=> {
+          console.error('error lors de la recherche :',error);
+        }
+      )
+    }
+  }*/
+ /*
+    getAnnonces(): void {
+      this.annonceService.getAnnonce(model).subscribe(
+        (annonces: Annonce[]) => {
+          this.annonces = annonces;
+          this.filteredAnnonces = annonces; // Initialisation avec toutes les annonces
+        },
+        error => {
+          console.error('Erreur lors de la récupération des annonces : ', error);
+        }
+      );
+    }*/
+
+    onSearch(): void {
+      if (this.searchQuery) {
+        this.filteredAnnonces = this.annonces.filter(annonce =>
+          annonce.model.toLowerCase().includes(this.searchQuery.toLowerCase())
+        );
+      } else {
+        this.filteredAnnonces = this.annonces; // Réinitialiser la liste si la recherche est vide
+      }
+    }
+    onLogin():void{
+      
+
+    }
+  
+
 
   
     

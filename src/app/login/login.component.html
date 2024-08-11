@@ -1,0 +1,17 @@
+<div>
+  <h2>Connexion</h2>
+  <form (ngSubmit)="verif_login()">
+    <div>
+      <label>Email :</label>
+      <input type="email" [(ngModel)]="email" name="email" required>
+    </div>
+    <div>
+      <label>Mot de passe :</label>
+      <input type="password" [(ngModel)]="password" name="password" required>
+    </div>
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+    <button type="submit">Se connecter</button>
+  </form>
+</div>

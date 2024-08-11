@@ -13,6 +13,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { formatCurrency } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
+import { NotificationComponent } from './notification/notification.component';
 //decorateur (annotation en spring boot)
 @NgModule({
   // commpont declaration
@@ -23,7 +25,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DetailleannonceComponent,
     AjouterannonceComponent,
     SupprimerannonceComponent,
-    ModifierannonceComponent
+    ModifierannonceComponent,
+    LoginComponent,
+    NotificationComponent
   ],
   //model(bibliotheque)
   imports: [

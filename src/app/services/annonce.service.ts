@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Annonce } from '../model/annonce';
 import { Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
@@ -35,5 +35,14 @@ export class AnnonceService {
   deleteAnnonce(id: string): Observable<void> {
     return this.http.delete<void>(`${this.baseurl}/${id}`);
   }
+ /* rechercheAnnoncebymodel(model:string): Observable<Annonce[]> {
+    const filter=`{"where":{"model":{"like":"${model}%}}}`;
+    const params = new HttpParams().set('filter',filter);
+    return this.http.get<Annonce[]>(this.baseurl,Option:{params});
+  }*/
+    searchAnnonces(query: string): Observable<Annonce[]> {
+      const params = new HttpParams().set('q', query); // Assurez-vous que le paramètre correspond à ce que l'API attend
+      return this.http.get<Annonce[]>(`${this.baseurl}`, { params });
+    }
 
 }
