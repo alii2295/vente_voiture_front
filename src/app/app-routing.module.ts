@@ -8,16 +8,19 @@ import { ModifierannonceComponent } from './annonce/modifierannonce/modifieranno
 import { SupprimerannonceComponent } from './annonce/supprimerannonce/supprimerannonce.component';
 import { LoginComponent } from './login/login.component';
 import { NotificationComponent } from './notification/notification.component';
+import { AuthGuard } from './services/AuthGuard';
 
 const routes: Routes = [
   {path: 'ajouterannonce',component: AjouterannonceComponent},
   {path: 'inscription',component: InscriptionComponent},
-  {path: 'accueil',component:AccueilComponent},
+ 
   {path: 'detailleannonce/:id',component:DetailleannonceComponent},
   {path: 'modifierannonce/:id',component:ModifierannonceComponent},
   {path: 'supprimerannonce',component:SupprimerannonceComponent},
-  {path: 'login',component:LoginComponent},
-  {path:'notification',component:NotificationComponent}
+  { path: 'accueil', component: AccueilComponent, canActivate: [AuthGuard] },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  {path:'notification',component:NotificationComponent},
+  { path: 'login', component: LoginComponent },
   
 ];
 //{path: '/rihab',component: AjouterannonceComponent,pathMatch: 'full'}

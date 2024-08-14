@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from '../services/user.service';
+import { AuthService } from '../services/auth.service';
+import { User } from '../model/user';
 
 @Component({
   selector: 'app-inscription',
@@ -8,32 +9,22 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./inscription.component.css']
 })
 export class InscriptionComponent {
-  constructor(private router:Router,private userservice:UserService)
-  {
-    this.router=router;
-  }
+  nouvelleuser: User = {
+    id: '',
+    nom: '',
+    prenom: '',
+    password: '',
+    email: ''
+  };
 
-  nouvelleuser = {
-    id:0,
-    nom:'',
-    prenom:'',
-    password:'',
-    email:''
-    };
-  ajouteruser():void
-  {
-    const datauser = {
-      nom:this.nouvelleuser.nom,
-      prenom:this.nouvelleuser.prenom,
-      password:this.nouvelleuser.password,
-      email:this.nouvelleuser.email
-    };
-    console.log(datauser);
-  
-    this.userservice.createUser(datauser).subscribe(() => {
-      this.router.navigate(['/accueil']);
+  constructor(private router: Router, private authService: AuthService) {}
+
+  ajouteruser(): void {
+    this.authService.signup(this.nouvelleuser).subscribe(() => {
+      console.log('Utilisateur créé avec succès');
+      this.router.navigate(['/login']);
     }, error => {
-      console.error('Error creating user:', error);
+      console.error('Erreur lors de la création de l\'utilisateur :', error);
     });
   }
 }

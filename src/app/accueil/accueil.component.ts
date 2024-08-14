@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AnnonceService } from '../services/annonce.service';
 import { Annonce } from '../model/annonce';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-accueil',
@@ -16,8 +17,13 @@ export class AccueilComponent implements OnInit {
   password:String ='';
 
 
-  constructor(private router: Router, private annonceService: AnnonceService) { }
+  constructor(private router: Router, private annonceService: AnnonceService,private authService: AuthService) { }
 
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
   ngOnInit(): void {
     this.annonceService.getListeAnnonces().subscribe(data => {
       this.annonces = data;

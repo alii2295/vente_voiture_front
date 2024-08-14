@@ -5,13 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Site d'Annonces</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Inclure les fichiers CSS si nécessaire -->
-     
+    
 </head>
 <body>
-  
     <header>
-      
         <div class="logo">
             <img src="assets/voiture.png" alt="Logo">
             <h1>Mon Site d'Annonces</h1>
@@ -19,63 +16,36 @@
     </header>
     
     <main class="container">
-      <!-- login.component.html -->
-<form (ngSubmit)="onLogin()">
-  <label for="username">Username:</label>
-  <input id="username" [(ngModel)]="username" name="username" required>
-  <br>
-  <label for="password">Password:</label>
-  <input id="password" [(ngModel)]="password" name="password" type="password" required>
-  <br>
-  <button type="submit">Login</button>
-</form>
-        <section class="mes-annonces" *ngFor="let annonce of annonces">
-            <div class="annonce">
-                <div (click)="redirectToDetails(annonce.id)">
-                  
-                    <p>{{ annonce.model }}</p>
-                    <p>{{ annonce.matricule }}</p>
-                    <img [src]="'assets/' + annonce.photo" alt="Image de l'annonce">
-                    <p>{{ annonce.kilometrage }}</p>
-                    <p>{{ annonce.carburant }}</p>
-                </div>
+        <section class="search-container">
+            <h2>Recherche d'annonces</h2>
+            <input type="text" [(ngModel)]="searchQuery" placeholder="Rechercher par modèle..." />
+            <button (click)="onSearch()">Rechercher</button>
+        </section>
 
-                <button type="button" (click)="supprimer(annonce.id)">
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                </button>
-                <button type="button" (click)="edit(annonce.id)">
-                    <i class="fa fa-edit" aria-hidden="true"></i>
-                </button>
+        <section class="annonces-list">
+            <div class="annonce" *ngFor="let annonce of filteredAnnonces">
+                <img [src]="'assets/' + annonce.photo" alt="Image de l'annonce">
+                <div class="annonce-details">
+                    <h2>{{ annonce.model }}</h2>
+                    <p>Matricule: {{ annonce.matricule }}</p>
+                    <p>Kilométrage: {{ annonce.kilometrage }}</p>
+                    <p>Carburant: {{ annonce.carburant }}</p>
+                </div>
+                <div class="annonce-actions">
+                    <button (click)="redirectToDetails(annonce.id)">
+                        <i class="material-icons">info</i> Détails
+                    </button>
+                    <button (click)="supprimer(annonce.id)">
+                        <i class="material-icons">delete</i> Supprimer
+                    </button>
+                    <button (click)="edit(annonce.id)">
+                        <i class="material-icons">edit</i> Modifier
+                    </button>
+                </div>
             </div>
         </section>
-        <div class="search-container">
-             <!-- Recherche -->
-             <div class="search-container">
-              <h2>Recherche d'annonces</h2>
-              <input type="text" [(ngModel)]="searchQuery" placeholder="Rechercher par modèle..." />
-              <button (click)="onSearch()">Rechercher</button>
-          </div>
-           <!-- Liste des annonces -->
-           <div class="annonces-list">
-            <section *ngFor="let annonce of filteredAnnonces">
-                <div class="annonce">
-                    <p>{{ annonce.model }}</p>
-                    <p>{{ annonce.matricule }}</p>
-                   <!-- <img [src]="'assets/' + annonce.photo" alt="Image de l'annonce"> -->
-                    <p>{{ annonce.kilometrage }}</p>
-                    <p>{{ annonce.carburant }}</p>
-                    <button type="button" (click)="redirectToDetails(annonce.id)">Détails</button>
-                    <button type="button" (click)="supprimer(annonce.id)">Supprimer</button>
-                    <button type="button" (click)="edit(annonce.id)">Modifier</button>
-
-                </div>
-            </section>
-        </div>
-          
-        </div>
     </main>
-    
-  
+
     <footer>
         <p>&copy; 2024 Mon Site d'Annonces. Tous droits réservés.</p>
     </footer>

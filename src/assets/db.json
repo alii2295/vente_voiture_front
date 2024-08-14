@@ -1,30 +1,6 @@
 {
   "annonces": [
     {
-      "id": "9d93",
-      "model": "BMWx",
-      "matricule": "2450",
-      "kilometrage": 10,
-      "carburant": "gaz",
-      "photo": "bmw.jpg"
-    },
-    {
-      "id": "5217",
-      "model": "polo5",
-      "matricule": "250",
-      "kilometrage": 200,
-      "carburant": "essence",
-      "photo": "polo5.jpg"
-    },
-    {
-      "id": "cfa5",
-      "model": "kia sportage",
-      "matricule": "250",
-      "kilometrage": 200,
-      "carburant": "essence",
-      "photo": "kiasportage.png"
-    },
-    {
       "id": "daf9",
       "model": "range",
       "matricule": "240",
@@ -46,6 +22,27 @@
       "nom": "ali",
       "prenom": "aali",
       "password": "aliali",
+      "email": "ali@gmail.com"
+    },
+    {
+      "id": "9683",
+      "nom": "",
+      "prenom": "",
+      "password": "",
+      "email": ""
+    },
+    {
+      "id": "",
+      "nom": "ryhab",
+      "prenom": "aloulu",
+      "password": "Ryhab123",
+      "email": "ryhabelmoncerr@gmail.com"
+    },
+    {
+      "id": "",
+      "nom": "Ali",
+      "prenom": "aloulu",
+      "password": "123456789",
       "email": "ali@gmail.com"
     }
   ]
