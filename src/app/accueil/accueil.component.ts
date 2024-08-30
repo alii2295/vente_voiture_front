@@ -28,6 +28,7 @@ export class AccueilComponent implements OnInit {
     this.annonceService.getListeAnnonces().subscribe(data => {
     this.annonces = data;
     this.filteredAnnonces = data;
+    window.location.reload();
      });
     
   }

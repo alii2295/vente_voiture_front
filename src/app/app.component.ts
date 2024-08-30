@@ -26,6 +26,8 @@ export class AppComponent /*implements OnInit */{
   if (this.authService.isLoggedIn)
   {this.logged=true;}
    }
+
+
  logout()
  {
   if (this.authService.isLoggedIn)
