@@ -1,6 +1,4 @@
-import { Component,OnInit } from '@angular/core';
-import { NotificationService } from './services/notification.service';
-import { NotificationComponent } from './notification/notification.component';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
 
@@ -9,14 +7,13 @@ import { AuthService } from './services/auth.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-
-export class AppComponent /*implements OnInit */{
-  notificationMessage: string='';
+export class AppComponent implements OnInit {
   title = 'vente_voiture_front';
-  logged:boolean=false;
+  logged = false;
 
-  constructor(private router:Router,private authService: AuthService/*private notificationservice: NotificationService*/) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
+<<<<<<< HEAD
   /*ngOnInit(): void {
     // Exemple : Afficher une notification au chargement de la page
     this.notificationMessage = 'Bienvenue sur notre site!';
@@ -33,15 +30,16 @@ export class AppComponent /*implements OnInit */{
   if (this.authService.isLoggedIn)
   {
     
-    this.authService.logout();
-    this.logged=false;
-    this.router.navigate(['/login']);
+=======
+  ngOnInit(): void {
+    this.authService.isLoggedIn$.subscribe((isLoggedIn: boolean) => {
+      this.logged = isLoggedIn;
+    });
   }
-  else 
-  {
-    this.router.navigate(['/login']);
-  }
-  
- }
 
+  logout() {
+>>>>>>> 00ab6a4212bc8f015d670b7694fcbe492983f2c8
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
 }

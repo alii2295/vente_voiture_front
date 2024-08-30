@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { User } from '../model/user';
 
@@ -9,8 +9,10 @@ import { User } from '../model/user';
 })
 export class AuthService {
   private apiUrl = 'http://localhost:3000/User';
-  
   private loggedInUser: User | null = null;
+  
+  // Utilisation d'un BehaviorSubject pour gérer l'état de connexion
+  private loggedIn = new BehaviorSubject<boolean>(this.isLoggedIn());
 
   constructor(private http: HttpClient) {}
 
@@ -25,8 +27,10 @@ export class AuthService {
         if (user) {
           this.loggedInUser = user;
           localStorage.setItem('user', JSON.stringify(this.loggedInUser));
+          this.loggedIn.next(true);  // Met à jour l'état de connexion à 'true'
         } else {
           this.loggedInUser = null;
+          this.loggedIn.next(false); // Met à jour l'état de connexion à 'false'
         }
       })
     );
@@ -35,9 +39,16 @@ export class AuthService {
   logout(): void {
     this.loggedInUser = null;
     localStorage.removeItem('user');
+    this.loggedIn.next(false);  
   }
 
-  get isLoggedIn(): boolean {
+  
+  get isLoggedIn$(): Observable<boolean> {
+    return this.loggedIn.asObservable();
+  }
+
+
+  private isLoggedIn(): boolean {
     return this.loggedInUser !== null || !!localStorage.getItem('user');
   }
 }
