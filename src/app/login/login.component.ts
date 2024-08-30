@@ -17,12 +17,20 @@ export class LoginComponent {
   verif_login() {
     this.authService.login(this.email, this.password).subscribe(user => {
       if (user) {
+        
+        
         console.log('Connecté avec succès');
         this.router.navigate(['/accueil']);
+        
+        
+        
+        
       } else {
         this.errorMessage = 'Mot de passe ou email incorrect';
       }
     });
+    
 
 }
+
 }

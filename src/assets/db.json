@@ -7,6 +7,30 @@
       "kilometrage": 0,
       "carburant": "essence",
       "photo": "rangerover.jpg"
+    },
+    {
+      "id": "d8ec",
+      "model": "polo 6",
+      "matricule": "105",
+      "kilometrage": 250000,
+      "carburant": "essence",
+      "photo": "polo5.jpg"
+    },
+    {
+      "id": "ed9b",
+      "model": "bmw",
+      "matricule": "250",
+      "kilometrage": 200,
+      "carburant": "essence",
+      "photo": "bmw.jpg"
+    },
+    {
+      "id": "7e72",
+      "model": "kia sportage",
+      "matricule": "240",
+      "kilometrage": 0,
+      "carburant": "gaz",
+      "photo": ""
     }
   ],
   "User": [

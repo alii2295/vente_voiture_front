@@ -26,8 +26,10 @@ export class AccueilComponent implements OnInit {
   }
   ngOnInit(): void {
     this.annonceService.getListeAnnonces().subscribe(data => {
-      this.annonces = data;
-    });
+    this.annonces = data;
+    this.filteredAnnonces = data;
+     });
+    
   }
 
   redirectToDetails(id: string) {

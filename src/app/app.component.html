@@ -1,6 +1,16 @@
 
 <router-outlet>
-   
+  
+  <!-- Affiche ce message seulement si isLoggedIn est vrai -->
+<div *ngIf="logged">
+  <button (click)="logout()">Logout</button>
+  <p>Bienvenue sur notre site!</p>
+</div>
+
+<!-- Affiche ce message seulement si isLoggedIn est faux -->
+<div *ngIf="!logged">
+  <p>Veuillez vous connecter.</p>
+</div>
   
 </router-outlet>
 
