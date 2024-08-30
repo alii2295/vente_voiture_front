@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
       this.logged = isLoggedIn;
     });
   }
-
+//////////////////////
   logout() {
 >>>>>>> 00ab6a4212bc8f015d670b7694fcbe492983f2c8
     this.authService.logout();
