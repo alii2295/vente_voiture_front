@@ -32,7 +32,7 @@
                     <p>Carburant: {{ annonce.carburant }}</p>
                 </div>
                
-                <div class="annonce-actions">
+                <div  *ngIf="isAdmin" class="annonce-actions">
                     <button (click)="redirectToDetails(annonce.id)">
                         <i class="material-icons">info</i> Détails
                     </button>

@@ -48,7 +48,36 @@ export class AuthService {
   }
 
 
+
   private isLoggedIn(): boolean {
     return this.loggedInUser !== null || !!localStorage.getItem('user');
+  }
+  getToken():any {
+    const token = localStorage.getItem('user');
+    if(token) {
+      return JSON.parse(token);
+    }
+    return null;
+  
+  }
+    /*getToken(): any {
+      const tokenString = localStorage.getItem('userToken');
+      if (tokenString) {
+        try {
+          // Essaie de parser le token en JSON
+          return JSON.parse(tokenString);
+        } catch (error) {
+          // Gestion des erreurs lors du parsing
+          console.error('Erreur lors du parsing du token depuis localStorage:', error);
+          return null;
+        }
+      }
+      return null;
+    }*/
+  getUserEmail(): string | null {
+    const token =this.getToken();
+    return token? token.email : null;
+    /*const token = this.getToken();
+    return token && token.email ? token.email : null;*/
   }
 }

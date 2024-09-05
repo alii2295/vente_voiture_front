@@ -1,3 +1,4 @@
+import { User } from "./user";
 
 export interface Annonce {
     id:string,
@@ -5,4 +6,7 @@ export interface Annonce {
     matricule:string,
     kilometrage:number, 
     carburant:string ,
-    photo:String}
+    photo:String,
+    idu:string,
+
+}

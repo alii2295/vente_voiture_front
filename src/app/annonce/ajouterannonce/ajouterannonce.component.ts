@@ -14,7 +14,8 @@ export class AjouterannonceComponent {
     matricule: '',
     kilometrage: 0,
     carburant: '',
-    photo: ''
+    photo: '',
+    userid:'',
   };//instance de la base de données , initialisation de table ,obligatoire avant d'accèder au table de base de données
   selectedFile: File | null = null;
 
@@ -25,12 +26,15 @@ export class AjouterannonceComponent {
   }
 
   ajouterAnnonce(): void {
+    const userid=localStorage.getItem('idu');
+  
     const annonceData = {
       model: this.nouvelleAnnonce.model,
       matricule: this.nouvelleAnnonce.matricule,
       kilometrage: this.nouvelleAnnonce.kilometrage,
       carburant: this.nouvelleAnnonce.carburant,
-      photo: this.selectedFile ? this.selectedFile.name : ''
+      photo: this.selectedFile ? this.selectedFile.name : '',
+      userid:userid,
     };
   
     console.log(annonceData);

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
-import { User } from '../model/user';
+import { AuthService } from '../../services/auth.service';
+import { User } from '../../model/user';
 
 @Component({
   selector: 'app-inscription',
@@ -10,12 +10,14 @@ import { User } from '../model/user';
 })
 export class InscriptionComponent {
   nouvelleuser: User = {
-    id: '',
+    idu: '',
     nom: '',
     prenom: '',
     password: '',
-    email: ''
+    email: '', 
+    annonces:[],
   };
+  
 
   constructor(private router: Router, private authService: AuthService) {}
 

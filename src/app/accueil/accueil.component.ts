@@ -15,6 +15,8 @@ export class AccueilComponent implements OnInit {
   filteredAnnonces: Annonce[] = [];
   username:String = '';
   password:String ='';
+  isAdmin= true;
+  useremail:string | null=null;
 
 
   constructor(private router: Router, private annonceService: AnnonceService,private authService: AuthService) { }
@@ -28,8 +30,20 @@ export class AccueilComponent implements OnInit {
     this.annonceService.getListeAnnonces().subscribe(data => {
     this.annonces = data;
     this.filteredAnnonces = data;
-    window.location.reload();
      });
+     const token = this.authService.getToken();
+     console.log('Token utilisateur:', token);
+     this.useremail=this.authService.getUserEmail();
+      if (this.useremail === "ali@gmail.com")
+      {
+        this.isAdmin=true;
+      }
+      else
+      {
+        this.isAdmin=false;
+      }
+      console.log('isadmin = ',this.isAdmin);
+      console.log('email connecté = ' , this.useremail);
     
   }
 

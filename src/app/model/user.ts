@@ -1,9 +1,12 @@
+import { Annonce } from "./annonce";
 
 
 export interface User {
-    id:string,
+    idu:string,
     nom:string,
     prenom:string,
     password:string,
-    email:string
+    email:string,
+    annonces:Annonce[];
+
 }

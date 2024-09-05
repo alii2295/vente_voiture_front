@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AccueilComponent } from './accueil/accueil.component';
-import { InscriptionComponent } from './inscription/inscription.component';
+import { InscriptionComponent } from './user/inscription/inscription.component';
 import { DetailleannonceComponent } from './annonce/detailleannonce/detailleannonce.component';
 import { AjouterannonceComponent } from './annonce/ajouterannonce/ajouterannonce.component';
 import { SupprimerannonceComponent } from './annonce/supprimerannonce/supprimerannonce.component';
@@ -15,6 +15,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { NotificationComponent } from './notification/notification.component';
+import { ModifieruserComponent } from './user/modifieruser/modifieruser.component';
+
 //decorateur (annotation en spring boot)
 @NgModule({
   // commpont declaration
@@ -27,7 +29,8 @@ import { NotificationComponent } from './notification/notification.component';
     SupprimerannonceComponent,
     ModifierannonceComponent,
     LoginComponent,
-    NotificationComponent
+    NotificationComponent,
+    ModifieruserComponent
   ],
   //model(bibliotheque)
   imports: [

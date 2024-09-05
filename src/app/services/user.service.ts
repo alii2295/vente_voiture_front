@@ -17,16 +17,22 @@ export class UserService {
   getListUsers():Observable<User[]>{
     return this.http.get<User[]>(this.baseurl);
   }
-  getUser(id:string):Observable<User>{
-    return this.http.get<User>(this.baseurl);
+  getUser(idu:string):Observable<User[]>{
+    return this.http.get<User[]>(`${this.baseurl}?idu=${idu}`);
   }
-  updateUser(user:User,id:string):Observable<User>{
-    return this.http.put<User>(`${this.baseurl}/${id}`,user)
+  /*getUser(id:string):Observable<User[]>{
+    return this.http.get<User[]>(this.baseurl);
+  }*/
+  /*getAnnonce(id: string): Observable<Annonce[]> {
+    return this.http.get<Annonce[]>(`${this.baseurl}?id=${id}`);
+  }*/
+  updateUser(user:User,idu:string):Observable<User>{
+    return this.http.put<User>(`${this.baseurl}/${idu}`,user)
 
   }
 
-  deleteUser(id:string):Observable<void>{
-    return this.http.delete<void>(`${this.baseurl}/${id}`);
+  deleteUser(idu:string):Observable<void>{
+    return this.http.delete<void>(`${this.baseurl}/${idu}`);
   }
  
   

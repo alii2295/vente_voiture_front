@@ -90,6 +90,7 @@ export class ModifierannonceComponent {
       kilometrage: this.annonce?.kilometrage ?? 0, // Assurez-vous que `kilometrage` est défini
       carburant: this.annonce?.carburant || '', // Assurez-vous que `carburant` est défini
       photo: this.selectedFile ? this.selectedFile.name : this.annonce?.photo || '',
+      idu:this.annonce?.idu || '',
     };
   
     console.log(annonceData);

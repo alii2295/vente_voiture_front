@@ -5,6 +5,10 @@
 <div *ngIf="logged">
   <button (click)="logout()">Logout</button>
   <p>Bienvenue sur notre site!</p>
+  <button (click)="profil()" class="profile-button">
+    <img src="assets/user.png" alt="Profil" class="profile-image">
+    <span class="profile-name">Bienvenue {{username}} </span>
+  </button>
 </div>
 
 <!-- Affiche ce message seulement si isLoggedIn est faux -->
