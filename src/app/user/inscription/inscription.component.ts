@@ -9,15 +9,18 @@ import { User } from '../../model/user';
   styleUrls: ['./inscription.component.css']
 })
 export class InscriptionComponent {
+  generateUniqueId(): string {
+    return 'id-' + Math.random().toString(36).substr(2, 9); 
+  }
   nouvelleuser: User = {
-    idu: '',
+    id: this.generateUniqueId(), 
     nom: '',
     prenom: '',
     password: '',
     email: '', 
     annonces:[],
   };
-  
+ 
 
   constructor(private router: Router, private authService: AuthService) {}
 

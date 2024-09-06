@@ -59,7 +59,7 @@ export class ModifieruserComponent {
   modifieruser():void
   {
     const userData: User = {
-      idu: this.user?.idu || '',
+      id: this.user?.id || '',
       nom: this.user?.nom || '',
       prenom: this.user?.prenom || '',
       password: this.user?.password || '',

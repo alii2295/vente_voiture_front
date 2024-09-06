@@ -2,7 +2,7 @@ import { Annonce } from "./annonce";
 
 
 export interface User {
-    idu:string,
+    id:string,
     nom:string,
     prenom:string,
     password:string,
