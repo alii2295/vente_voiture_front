@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/model/user';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -13,7 +14,8 @@ export class ModifieruserComponent {
   user:User | undefined;
   users:User[]=[];
   ancienid:string='';
-  constructor(private router:Router,private userservice:UserService,private route:ActivatedRoute){}
+  constructor(private router:Router,private userservice:UserService,
+    private authservice: AuthService ,private route:ActivatedRoute){}
  /* usermodifier: User = {
     id: '',
     nom: '',
@@ -25,20 +27,22 @@ export class ModifieruserComponent {
 
   getuser():void
   {
-    const id = this.route.snapshot.paramMap.get('idu');
-    
-    if (id)
+    /*const id = this.route.snapshot.paramMap.get('id');*/
+    const idconnected=this.authservice.getToken().id;
+    console.log('id connectec = ',idconnected);
+    if (idconnected)
     {
-      this.ancienid=id;
-      this.userservice.getUser(id).subscribe(
+      this.ancienid=idconnected;
+      this.userservice.getUser(idconnected).subscribe(
         (users: User[])=>{
           if (users.length>0)
           {
+            console.log('tableau des users = ' ,users);
             this.user= users[0]
           }
           else
           {
-            console.error(`aucun user trouvé pour le id ${id}`);
+            console.error(`aucun user trouvé pour le id ${idconnected}`);
           }
         },
         error =>{

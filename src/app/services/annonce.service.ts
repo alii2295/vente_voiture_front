@@ -8,13 +8,36 @@ import { HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AnnonceService {
-  private baseurl = 'http://localhost:3000/annonces';//API 192;66;90;1
+  private baseurl = 'http://localhost:8080/annonce';//API 192;66;90;1
 
   constructor(private http: HttpClient) { }
 
-  createAnnonce(annonce: any): Observable<Annonce> {
-    return this.http.post<Annonce>(this.baseurl, annonce);
+  /*createAnnonce(annonce: any): Observable<Annonce> {
+    return this.http.post<Annonce>(`$this.baseurl, annonce)/ajouter`);
+  }*/
+  /*createAnnonce(annonce: any,imageFile:File): Observable<any> {
+    const formData:FormData=new FormData();
+    FormData.append('annonce',new Blob([JSON.stringify(annonce)],{type:'application/json'}));
+    FormData.append('image',imageFile);
+    const id_user='52';
+
+    return this.http.post<Annonce>(`${this.baseurl}/ajouter/${id_user}`, FormData);
+  }*/
+    createAnnonce(annonce: any, imageFile: File): Observable<any> {
+      const formData: FormData = new FormData();
+      
+      // Add the annonce as a Blob
+      formData.append('annonce', new Blob([JSON.stringify(annonce)], { type: 'application/json' }));
+      
+      // Add the image
+      formData.append('image', imageFile);
+      
+      const id_user = '52'; // Replace with actual user ID
+      
+      // Send POST request with FormData
+      return this.http.post<any>(`${this.baseurl}/ajouter/${id_user}`, formData);
   }
+  
   
   getListeAnnonces(): Observable<Annonce[]> {
     return this.http.get<Annonce[]>(this.baseurl);

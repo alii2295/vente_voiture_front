@@ -8,16 +8,21 @@ import { User } from '../model/user';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000/User';
+  private apiUrl = 'http://localhost:8080/user';
   private loggedInUser: User | null = null;
   
   // Utilisation d'un BehaviorSubject pour gérer l'état de connexion
   private loggedIn = new BehaviorSubject<boolean>(this.isLoggedIn());
 
+
+
   constructor(private http: HttpClient) {}
 
   signup(user: User): Observable<User> {
-    return this.http.post<User>(this.apiUrl, user);
+    
+      
+    
+    return this.http.post<User>(`${this.apiUrl}/ajouter`, user);
   }
 
   login(email: string, password: string): Observable<User | null> {
@@ -79,5 +84,9 @@ export class AuthService {
     return token? token.email : null;
     /*const token = this.getToken();
     return token && token.email ? token.email : null;*/
+  }
+  getUserid():string | null {
+    const token=this.getToken();
+    return token? token.id : null;
   }
 }

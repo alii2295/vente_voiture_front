@@ -6,19 +6,18 @@ import { User } from '../model/user';
   providedIn: 'root'
 })
 export class UserService {
-  private baseurl = 'http://localhost:3000/User';
-
+  private baseurl = 'http://localhost:8080/User';
 
 
   constructor(private http: HttpClient) { }
   createUser(User:any):Observable<User>{
-    return this.http.post<User>(this.baseurl,User);
+    return this.http.post<User>(`${this.baseurl}ajouter`,User);
   }
   getListUsers():Observable<User[]>{
     return this.http.get<User[]>(this.baseurl);
   }
-  getUser(idu:string):Observable<User[]>{
-    return this.http.get<User[]>(`${this.baseurl}?idu=${idu}`);
+  getUser(id:string):Observable<User[]>{
+    return this.http.get<User[]>(`${this.baseurl}?id=${id}`);
   }
   /*getUser(id:string):Observable<User[]>{
     return this.http.get<User[]>(this.baseurl);
@@ -26,13 +25,13 @@ export class UserService {
   /*getAnnonce(id: string): Observable<Annonce[]> {
     return this.http.get<Annonce[]>(`${this.baseurl}?id=${id}`);
   }*/
-  updateUser(user:User,idu:string):Observable<User>{
-    return this.http.put<User>(`${this.baseurl}/${idu}`,user)
+  updateUser(user:User,id:string):Observable<User>{
+    return this.http.put<User>(`${this.baseurl}/${id}`,user)
 
   }
 
-  deleteUser(idu:string):Observable<void>{
-    return this.http.delete<void>(`${this.baseurl}/${idu}`);
+  deleteUser(id:string):Observable<void>{
+    return this.http.delete<void>(`${this.baseurl}/${id}`);
   }
  
   

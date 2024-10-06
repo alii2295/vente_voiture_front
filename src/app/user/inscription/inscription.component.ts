@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../model/user';
+import { nanoid } from 'nanoid';
+
 
 @Component({
   selector: 'app-inscription',
@@ -9,11 +11,11 @@ import { User } from '../../model/user';
   styleUrls: ['./inscription.component.css']
 })
 export class InscriptionComponent {
-  generateUniqueId(): string {
+ /* generateUniqueId(): string {
     return 'id-' + Math.random().toString(36).substr(2, 9); 
-  }
+  }*/
   nouvelleuser: User = {
-    id: this.generateUniqueId(), 
+    id : nanoid(),
     nom: '',
     prenom: '',
     password: '',

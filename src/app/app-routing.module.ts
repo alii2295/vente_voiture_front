@@ -12,8 +12,10 @@ import { AuthGuard } from './services/AuthGuard';
 import { ModifieruserComponent } from './user/modifieruser/modifieruser.component';
 
 const routes: Routes = [
-  {path: 'ajouterannonce',component: AjouterannonceComponent, canActivate: [AuthGuard]},
+  /*{path: 'ajouterannonce',component: AjouterannonceComponent, canActivate: [AuthGuard]},*/
   {path: 'inscription',component: InscriptionComponent},
+  {path: 'ajouterannonce',component: AjouterannonceComponent},
+
  
   {path: 'detailleannonce/:id',component:DetailleannonceComponent},
   {path: 'modifierannonce/:id',component:ModifierannonceComponent},
